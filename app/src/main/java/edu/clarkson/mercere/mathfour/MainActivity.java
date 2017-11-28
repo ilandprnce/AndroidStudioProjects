@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void reset(){
         math.genEqn();
-        
+
         math.makeOptions();
         updateButtons();
     }
