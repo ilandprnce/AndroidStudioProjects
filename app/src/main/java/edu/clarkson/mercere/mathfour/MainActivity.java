@@ -76,13 +76,25 @@ public class MainActivity extends AppCompatActivity {
                     userPrompt.setText("Correct! The Answer was " + math.ans);
                     questionBox.setText("");
                     Log.v("od_Correct", "Right");
-
-
                     correctAnswer = true;
+
+
+
+
+
+
                 } else {
                     userPrompt.setText("Incorrect. The Answer was " + math.ans);
                     Log.v("od_Wrong", "Wrong");
                 }
+
+
+                if(correctAnswer ==true){
+                    // do a thing?    Go back to the other Activity... RESET?!
+                     math = new MathMaker();
+                    reset();
+                }
+
             }
         };
 
@@ -94,6 +106,8 @@ public class MainActivity extends AppCompatActivity {
 
         if(correctAnswer == true){
             // do a thing?    Go back to the other Activity... RESET?!
+            MathMaker math = new MathMaker();
+
            reset();
 
         }
@@ -101,7 +115,10 @@ public class MainActivity extends AppCompatActivity {
     } // put listener after this
 
     public void reset(){
-        math.genEqn();
+        equation = math.eqn;
+        userPrompt.setText("Solve");
+        questionBox.setText(equation);
+
 
         math.makeOptions();
         updateButtons();
